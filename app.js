@@ -68,6 +68,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     controller: 'ideaCtrl'
   }
 
+  var profile = {
+    name: 'profile',
+    url: '/profile',
+    templateUrl: 'templates/profile/index.html',
+    controller: 'profileCtrl'
+  }
+
   $stateProvider.state(idea);
 
   var login = {
@@ -108,7 +115,7 @@ myApp.run(function ($rootScope, $state, baseSvc) {
         $rootScope.showSideBar = true;
       }
 
-      if(newUrl.indexOf("idea")!=-1 || newUrl.indexOf("profile")!=-1){
+      if(newUrl.indexOf("idea")!=-1){
         if(!$rootScope.token){
           window.location.href = '#!/login';
           $rootScope.message = "You have to log in first."
