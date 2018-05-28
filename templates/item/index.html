@@ -1,0 +1,157 @@
+<div class="title-post">
+    <h2 class="post-heading">{{item.title}}</h2>
+    <h6 class="credit">আইডিয়া কৃতিত্ব: {{item.user.name}}</h6>
+    <div class="single-meta">
+        <div class="meta pull-left">
+
+            <div class="social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-pinterest"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-envelope-o"></a>
+            </div>
+        </div>
+
+        <div class="pull-right">
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+
+<article class="style2" style="padding-bottom: 0px; border-bottom: 2px solid black;" ng-repeat="option in item.options track by $index">
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="post-excerpt desk-block">
+                <h3 class="mobile-margin">
+                    <span class="numbering-mobile">{{$index+1}}</span>
+                </h3>
+                <p class="vote-up-icon-mobile">ভোট দিন
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                </p>
+            </div>
+            <a href="javascript:void(0)" ng-click="goToDetails(item.title, $index+1, option)">
+                <div class="article-thumb">
+                    <img src="img/category/cricket.jpg" class="img-responsive" alt="" />
+                </div>
+            </a>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <div class="post-excerpt">
+                <h3 style="margin-top: 0px;" class="mobile-margin">
+                    <span class="numbering">{{$index+1}}</span>
+                    <a href="javascript:void(0)" ng-click="goToDetails(item.title, $index+1, option)">{{option.title}}</a>
+                </h3>
+                <p class="vote-up-icon">ভোট দিন
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                </p>
+                <p>{{option.description}}</p>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="review">
+                <a href="javascript:void(0)" ng-click="goToDetails(item.title, $index+1, option)">
+                    <p class="comment-mo">
+                        <i class="fa fa-comment"></i>আপনার মন্তব্য দিন</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</article>
+
+<div class="clearfix"></div>
+<div class="">
+    <button class="morelink" style="height: 5em;" data-toggle="modal" data-target="#myModal7">তালিকায় আপনার প্রিয়/পছন্দ বাদ পড়েছে ? যোগ করে দিন !!!</button>
+</div>
+<div class="clearfix"></div>
+<div class="modal fade" id="myModal7" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="usr">আইটেম নং: ১</label>
+                        <input type="text" placeholder="আইটেমের নাম" class="form-control kichucss" id="">
+                        <textarea class="form-control" placeholder="আইটেমের বর্ণনা" rows="3" id="Textarea1"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default mod-button">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<ul class="pagination" style="float: right;">
+    <li class="disabled"><a href="#">«</a></li>
+    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">»</a></li>
+</ul> -->
+<div class="clearfix"></div>
+<div class="blog-single" style="margin-top: 2em;">
+
+    <div class="tags">
+        <span>Tags:</span> &nbsp;
+        <a href="#" ng-repeat="tag in item.tags">{{tag.name}}</a>
+    </div>
+
+    <div class="single-meta single-meta2">
+        <span>Share: &nbsp;</span>
+        <div class="social">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-pinterest"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-envelope-o"></a>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+</div>
+
+<div class="clearfix"></div>
+<div class="post-nav" style="margin-top: 2em;">
+    <div class="row">
+        <div class="col-md-6 text-right" ng-show="item.prev">
+            <a href="#!/item/{{item.prev.id}}">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <span class="small-title">আগের পোস্ট পড়ুন</span>
+            <h3>
+                <a href="#!/item/{{item.prev.id}}">{{item.prev.title}}</a>
+            </h3>
+        </div>
+        <div class="col-md-6 text-right" ng-hide="item.prev">
+        </div>
+
+        <div class="col-md-6 text-left" ng-show="item.next">
+            <a href="#!/item/{{item.next.id}}">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            <span class="small-title">পরের পোস্ট পড়ুন</span>
+            <h3>
+                <a href="#!/item/{{item.next.id}}">{{item.next.title}}</a>
+            </h3>
+        </div>
+        <div class="col-md-6 text-left" ng-hide="item.next">
+        </div>
+    </div>
+</div>
+<div class="comments" style="margin-top: 2em; padding-bottom: 2em;">
+    <div class="fb-comments" fb-comment-box page-href="{{fbLink}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+</div>

@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title></title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- ICON CSS -->
+    <link rel="stylesheet" href="js/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="js/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="js/slick/slick.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- MODERNIZR -->
+    <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=592139807817023" id="facebook-jssdk"></script>
+
+</head>
+
+<body ng-app="deshSera">
+
+    <div class="wrapper">
+        <header class="header header-megamenu">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="search-bar">
+                        <input type="search" placeholder="এখানে অনুসন্ধান করুন...">
+                        <div class="search-close">
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="img/logo.png" class="img-responsive" alt="" />
+                        </a>
+                    </div>
+
+
+                    <div class="search-trigger pull-right"></div>
+
+                    <div class="login pull-right">
+                    </div>
+                    <div class="log-reg pull-right hidden-xs ">
+                        <a class="login-hover" href="#!/login">লগইন</a>
+                        <a class="login-hover" href="#!/signup">সাইনআপ</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="">
+                                <a href="#!/" class="">হোম</a>
+
+                            </li>
+                            <li class="">
+                                <a href="#!/idea" class="">আপনার আইডিয়া</a>
+
+                            </li>
+                            <li class="">
+                                <a href="#!/new" class="">নতুন</a>
+                            </li>
+
+                            <li class="dropdown megamenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ক্যাটাগরি
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="row">
+                                            <a class="col-md-3" ng-repeat="category in categories" href="#!/category/{{category.id}}">{{category.title}}</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#!/popular" class="">জনপ্রিয়</a>
+                            </li>
+                            <li class="desktop-hidden">
+                                <div class="log-reg" style="margin-top: 10px; margin-left: 7px;">
+                                    <a href="#!/login">Sign In</a>
+                                </div>
+                            </li>
+                            <li class="desktop-hidden">
+                                <div class="log-reg" style="margin-top: 10px; margin-left: 7px;">
+                                    <a href="#!/signup">Sign Up</a>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+            </nav>
+        </header>
+
+        <div class="container" style="margin-top: 25px;" ng-show="showBanner">
+            <div class="row">
+                <div class="accordian">
+                    <ul>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">KungFu Panda</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">KungFu Panda</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">KungFu Panda</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">KungFu Panda</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Toy Story 2</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Toy Story 2</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Toy Story 2</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg" />
+                            </a>
+                        </li>
+
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Wall-E</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Up</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Up</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Up</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Up</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" />
+                            </a>
+                        </li>
+                        <li>
+                            <div class="image_title">
+                                <a href="#">Cars 2</a>
+                            </div>
+                            <a href="#">
+                                <img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8" ng-show="showSideBar">
+
+                    <!-- HOME SECTION 1 -->
+                    <ui-view></ui-view>
+                    <!-- // HOME SECTION 3 -->
+
+                </div>
+                <div class="col-md-12" ng-hide="showSideBar">
+
+                    <!-- HOME SECTION 1 -->
+                    <ui-view></ui-view>
+                    <!-- // HOME SECTION 3 -->
+
+                </div>
+
+                <!-- ASIDE 1  -->
+                <aside class="col-md-4 padding-top-60" ng-show="showSideBar">
+
+                    <div class="side-widget">
+                        <h4>সবচেয়ে</h4>
+
+                        <div role="tabpanel">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">জনপ্রিয়</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#new" aria-controls="new" role="tab" data-toggle="tab">নতুন</a>
+                                </li>
+                                <!-- <li role="presentation">
+                                    <a href="#viewed" aria-controls="viewed" role="tab" data-toggle="tab">শেয়ার</a>
+                                </li> -->
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active fade in" id="popular">
+                                    <div class="mini-posts">
+                                        <article class="style2 style-alt" ng-repeat="item in popularItems">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <a href="#!/item/{{item.id}}">
+                                                        <div class="article-thumb">
+                                                            <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="post-excerpt no-padding">
+
+                                                        <h5>
+                                                            <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane fade in" id="new">
+                                    <div class="mini-posts">
+                                        <article class="style2 style-alt" ng-repeat="item in newItems">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <a href="#!/item/{{item.id}}">
+                                                        <div class="article-thumb">
+                                                            <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="post-excerpt no-padding">
+                                                        <h5>
+                                                            <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TABS -->
+
+                    </div>
+
+                    <div class="side-widget">
+                        <h4>অনুসরণ করুন</h4>
+                        <div class="side-social">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>2,279
+                                <span>fans</span>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>1,928
+                                <span>followers</span>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-google-plus"></i>829
+                                <span>followers</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="side-widget">
+                        <h4>সাবস্ক্রাইব</h4>
+                        <div class="side-newsletter text-center">
+                            <p>সরাসরি আপনার ইনবক্সে সেরা ভাইরাল পোস্টগুলি পেতে </p>
+                            <form>
+                                <input placeholder="আপনার ইমেইল এড্রেস দিন " class="e-mail " name="email " id="address
+                                " data-validate="validate(required, email) " type="email ">
+                                <button type="submit ">সাবস্ক্রাইব করুন</button>
+                            </form>
+                        </div>
+                    </div>
+                </aside>
+                <!-- // ASIDE 1  -->
+
+            </div>
+
+
+        </div>
+
+
+        <footer class="margin-top-30 ">
+            <div class="container ">
+                <div class="footer-content ">
+                    <div class="row ">
+                        <div class="col-md-3 col-sm-3 ">
+                            <h5 class="text-white ">আরো বিস্তারিত</h5>
+                            <ul class="footer-links ">
+                                <li>
+                                    <a href="# ">ব্যানার বিজ্ঞাপন</a>
+                                </li>
+                                <li>
+                                    <a href="# ">কন্ট্রিবিউট</a>
+                                </li>
+                                <li>
+                                    <a href="# "></a>
+                                </li>
+                                <li>
+                                    <a href="# ">Music</a>
+                                </li>
+                                <li>
+                                    <a href="# ">TV</a>
+                                </li>
+                                <li>
+                                    <a href="# ">Books</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-3 ">
+                            <h5 class="text-white ">মেনু</h5>
+                            <ul class="footer-links ">
+                                <li>
+                                    <a href="# ">People</a>
+                                </li>
+                                <li>
+                                    <a href="# ">Entertain This!</a>
+                                </li>
+                                <li>
+                                    <a href="# ">Movies</a>
+                                </li>
+                                <li>
+                                    <a href="# ">Music</a>
+                                </li>
+                                <li>
+                                    <a href="# ">TV</a>
+                                </li>
+                                <li>
+                                    <a href="# ">Books</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-3 ">
+                            <h5 class="text-white ">সহযোগিতা</h5>
+                            <ul class="footer-links ">
+                                <li>
+                                    <a href="# ">আমাদের কথা</a>
+                                </li>
+                                <li>
+                                    <a href="# ">যোগাযোগ</a>
+                                </li>
+                                <li>
+                                    <a href="# ">শর্তাবলী এবং নীতিমালা</a>
+                                </li>
+                                <li>
+                                    <a href="# ">গোপনীয়তার নীতিমালা</a>
+                                </li>
+                                <li>
+                                    <a href="# ">প্রশ্ন-উত্তর</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-3 ">
+                            <h5 class="text-white ">অনুসরণ করুন</h5>
+                            <ul class="footer-social ">
+                                <li>
+                                    <a href="# ">ফেইসবুক</a>
+                                </li>
+                                <li>
+                                    <a href="# ">টুইটার</a>
+                                </li>
+                                <li>
+                                    <a href="# ">গুগল +</a>
+                                </li>
+                                <li>
+                                    <a href="# ">ইনস্টাগ্রাম</a>
+                                </li>
+                                <li>
+                                    <a href="# ">ইউটিউব</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom ">
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-6 ">
+                            <p>&copy; 2017 .com. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-right ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="js/jquery.min.js "></script>
+    <script src="js/bootstrap/bootstrap.min.js "></script>
+    <script src="js/slick/slick.min.js "></script>
+    <script src="js/theme.js "></script>
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+    <script src="js/controllers/indexCtrl.js"></script>
+    <script src="js/controllers/itemCtrl.js"></script>
+    <script src="js/controllers/authCtrl.js"></script>
+    <script src="js/controllers/profileCtrl.js"></script>
+
+</body>
+
+</html>

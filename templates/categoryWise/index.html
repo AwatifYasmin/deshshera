@@ -1,0 +1,47 @@
+<div class="padding-top-60">
+
+    <div class="row">
+        <h2 ng-show="items.length==0">No items available for this category</h2>
+        <div class="col-md-6" ng-repeat="item in items" ng-show="items.length!=0">
+            <div class="mini-posts">
+                <article class="style2 style-alt">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <a href="#!/item/{{item.id}}">
+                                <div class="article-thumb">
+                                    <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-8">
+                            <div class="post-excerpt no-padding">
+
+                                <h5>
+                                    <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // HOME SECTION 1 -->
+
+<!-- HOME SECTION 3 -->
+<h3 class="margin-bottom-15">
+    <b>সব ক্যাটাগরি</b>
+</h3>
+<div class="col-md-6 remove-padding" ng-repeat="category in categories">
+    <article class="style4 style-alt margin-bottom-10">
+        <a href="#!/category/{{category.id}}">
+            <div class="overlay overlay-02"></div>
+            <div class="post-thumb">
+                <div class="small-title cat">{{category.title}}</div>
+                <img src="img/home/01/{{category.id}}.jpg" class="img-responsive image-category" alt="">
+            </div>
+        </a>
+    </article>
+</div>

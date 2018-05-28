@@ -1,0 +1,30 @@
+<div class="padding-top-60">
+
+    <div class="row">
+        <div class="col-md-6" ng-repeat="item in items">
+            <div class="mini-posts">
+                <article class="style2 style-alt">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <a href="#!/item/{{item.id}}">
+                                <div class="article-thumb">
+                                    <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-8">
+                            <div class="post-excerpt no-padding">
+
+                                <h5>
+                                    <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // HOME SECTION 1 -->
