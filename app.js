@@ -152,6 +152,12 @@ myApp.run(function ($rootScope, $state, baseSvc, $window) {
     $rootScope.getInfo();
   }
 
+  $rootScope.logout = function(){
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("user");
+    $rootScope.token = "";
+  }
+
   $rootScope.$on('$locationChangeStart', function (event, newUrl) {
     if (newUrl.charAt(newUrl.length - 1) == '/') {
       $rootScope.showBanner = true;

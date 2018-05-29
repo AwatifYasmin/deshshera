@@ -59,9 +59,13 @@
 
                     <div class="login pull-right">
                     </div>
-                    <div class="log-reg pull-right hidden-xs ">
+                    <div class="log-reg pull-right hidden-xs" ng-hide="token">
                         <a class="login-hover" href="#!/login">লগইন</a>
                         <a class="login-hover" href="#!/signup">সাইনআপ</a>
+                    </div>
+                    <div class="log-reg pull-right hidden-xs" ng-show="token">
+                        <a class="login-hover" href="#!/profile">{{user.name}}</a>
+                        <a class="login-hover" href="javascript:void(0)" ng-click="logout()">লগ আউট</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->

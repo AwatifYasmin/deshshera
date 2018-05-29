@@ -39,7 +39,7 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
     $scope.processLoginResponse = function (response) {
         if(response.success == true){
             localStorage.setItem("auth-token", response.api_token);
-            localStorage.setItem("user", JSON.stringify(response.message));
+            localStorage.setItem("user-info", JSON.stringify(response.message));
             $rootScope.user = response.message;
             $state.go("profile");
         }
@@ -77,7 +77,7 @@ myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $statePara
         }, "register").then(function (response) {
             if(response.success == true){
                 localStorage.setItem("auth-token", response.api_token);
-                localStorage.setItem("user", JSON.stringify(response.message));
+                localStorage.setItem("user-info", JSON.stringify(response.message));
                 $rootScope.user = response.message;
                 $state.go("profile");
             }
