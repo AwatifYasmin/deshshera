@@ -1,21 +1,21 @@
 <div class="padding-top-60">
     <h1>নতুন লিস্ট যোগ করুন </h1>
-    <form class="ideaform">
+    <form class="ideaform" ng-submit="submit()">
         <div class="form-group">
             <label for="comment">শিরোনামঃ</label>
-            <textarea class="form-control" placeholder="লিস্টের শিরোনাম লিখুন (উদাহরণ: আপনার প্রিয় খেলা ) " rows="3" id="comment"></textarea>
+            <textarea class="form-control" ng-model="idea.title" required placeholder="লিস্টের শিরোনাম লিখুন (উদাহরণ: আপনার প্রিয় খেলা ) " rows="3" id="comment"></textarea>
         </div>
-        <div class="form-group">
-            <label for="usr">আইটেম নং: ১</label>
-            <input type="text" placeholder="আইটেমের নাম" class="form-control kichucss" id="">
-            <textarea class="form-control" placeholder="আইটেমের বর্ণনা" rows="3" id="Textarea1"></textarea>
+        <div class="form-group" ng-repeat="option in idea.options">
+            <label for="usr">{{$index+1}}</label>
+            <input type="text" ng-model="option.title" required placeholder="আইটেমের নাম" class="form-control kichucss" id="">
+            <textarea class="form-control" ng-model="option.description" required placeholder="আইটেমের বর্ণনা" rows="3" id="Textarea1"></textarea>
         </div>
         <div class="">
-            <a href="#" class="btn addbtn">নতুন আইটেম যোগ করুন</a>
+            <a href="javascript:void(0)" ng-click="addNewOption()" class="btn addbtn">নতুন আইটেম যোগ করুন</a>
         </div>
         <div class="clearfix"></div>
         <div class="btn-inline">
-            <a href="#" class="btn probut">সাবমিট করুন</a>
+            <input type="submit" class="btn probut" value="সাবমিট করুন">
         </div>
 
 

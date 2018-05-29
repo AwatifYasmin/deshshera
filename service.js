@@ -1,9 +1,14 @@
 myApp.service('baseSvc', function($http, $q) {
     var baseUrl = "http://soft360d.com/topten/";
     function getToken () {
-        var token = localStorage.getItem('token');
-        //console.log(token);
-        return token;
+        var token = localStorage.getItem('auth-token');
+        var guest = localStorage.getItem('guest-token');
+        if(token){
+            return token;
+        }
+        else {
+            return guest;
+        }
     }
 
     function get(endPoint) {
@@ -18,14 +23,7 @@ myApp.service('baseSvc', function($http, $q) {
         }).then(function(success) {
             deferred.resolve(success.data);
         }, function(error) {
-            deferred.reject({
-                error: error
-            });
-            if(error.status==401 || error.status==403){
-                localStorage.removeItem("token");
-                localStorage.removeItem("role");
-                location.href = 'login.html';
-            }
+            deferred.resolve(error);
         });
         return deferred.promise;
     }
@@ -43,14 +41,7 @@ myApp.service('baseSvc', function($http, $q) {
         }).then(function(success) {
             deferred.resolve(success.data);
         }, function(error) {
-            deferred.reject({
-                error: error
-            });
-            if(error.status==401 || error.status==403){
-                localStorage.removeItem("token");
-                localStorage.removeItem("role");
-                location.href = 'login.html';
-            }
+            deferred.resolve(error);
         });
         return deferred.promise;
     }
@@ -60,3 +51,22 @@ myApp.service('baseSvc', function($http, $q) {
         post : post
     }
 });
+
+
+myApp.factory('facebookService', function($q) {
+    return {
+        getInfo: function() {
+            var deferred = $q.defer();
+            FB.api('/me', {
+              fields: 'first_name, last_name, email, id'
+            }, function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+    }
+  });
