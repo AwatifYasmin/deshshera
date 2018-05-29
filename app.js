@@ -37,6 +37,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state(categoryWise);
 
+  var tagWise = {
+    name: 'tagWise',
+    url: '/tag/:id',
+    templateUrl: 'templates/tagWise/index.html',
+    controller: 'tagWiseCtrl'
+  }
+
+  $stateProvider.state(tagWise);
+
   var item = {
     name: 'item',
     url: '/item/:id',
