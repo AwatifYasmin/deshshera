@@ -3907,3 +3907,19 @@ aside .mini-posts {
     text-align: justify;
     font-size: 18px;
 }
+
+.pochondobutton {
+    border: 1px solid #19398A;
+    border-radius: 5px;
+    height: 31px;
+    background: #19398A;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
