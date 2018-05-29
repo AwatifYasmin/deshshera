@@ -53,3 +53,15 @@ myApp.controller('categoryWiseCtrl', function($scope, baseSvc, $stateParams) {
             });
         });
 });
+
+myApp.controller('tagWiseCtrl', function($scope, baseSvc, $stateParams) {
+    $scope.items = [];
+    var id = $stateParams.id;
+    baseSvc.get("/tag/"+id+"/items")
+        .then(function(response){
+            $scope.items = response;
+            $scope.items.forEach(function(item) {
+                item.photo = "http://soft360d.com/topten/images/" + item.photo;
+            });
+        });
+});
