@@ -57,7 +57,7 @@
 
                     <div class="search-trigger pull-right"></div>
 
-                    <a href="#!/profile" class="login pull-right"  ng-show="token">
+                    <a href="#!/profile" class="login pull-right" ng-show="token">
                     </a>
                     <div class="log-reg pull-right hidden-xs" ng-hide="token">
                         <a class="login-hover" href="#!/login">লগইন</a>
@@ -258,14 +258,15 @@
                         <div role="tabpanel">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs nav-justified" role="tablist">
+
+                                <li role="presentation" ng-class="{'active':tabOpen=='vote'}">
+                                    <a href="javascript:void(0)" aria-controls="vote" role="tab" ng-click="tabOpen='vote'">ভোট</a>
+                                </li>
                                 <li role="presentation" ng-class="{'active':tabOpen=='popular'}">
                                     <a href="javascript:void(0)" aria-controls="popular" role="tab" ng-click="tabOpen='popular'">জনপ্রিয়</a>
                                 </li>
                                 <li role="presentation" ng-class="{'active':tabOpen=='new'}">
                                     <a href="javascript:void(0)" aria-controls="new" role="tab" ng-click="tabOpen='new'">নতুন</a>
-                                </li>
-                                <li role="presentation" ng-class="{'active':tabOpen=='vote'}">
-                                    <a href="javascript:void(0)" aria-controls="vote" role="tab" ng-click="tabOpen='vote'">ভোট</a>
                                 </li>
                             </ul>
 

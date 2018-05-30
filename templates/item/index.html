@@ -3,52 +3,29 @@
     <h6 class="credit">আইডিয়া কৃতিত্ব: {{item.user.name}}</h6>
     <div class="single-meta">
         <div class="col-md-6 col-xs-12">
-                <div class="meta pull-left" style="margin-top: 3px;">
+            <div class="meta pull-left" style="margin-top: 3px;">
 
-                        <div class="social">
-                            <a href="javascript:void(0)"
-                            socialshare
-                            socialshare-provider="facebook"
-                            socialshare-text="{{item.title}}"
-                            socialshare-hashtags="#deshSera"
-                            socialshare-url="{{fbLink}}"
-                            class="fa fa-facebook"></a>
-                            <a href="javascript:void(0)"
-                            socialshare
-                            socialshare-provider="twitter"
-                            socialshare-text="{{item.title}}"
-                            socialshare-hashtags="#deshSera"
-                            socialshare-url="{{fbLink}}"
-                            class="fa fa-twitter"></a>
-                            <a href="javascript:void(0)"
-                            socialshare
-                            socialshare-provider="pinterest"
-                            socialshare-text="{{item.title}}"
-                            socialshare-url="{{fbLink}}" 
-                            class="fa fa-pinterest"></a>
-                            <a href="javascript:void(0)"
-                            socialshare
-                            socialshare-provider="linkedin"
-                            socialshare-text="{{item.title}}"
-                            socialshare-description="{{item.description}}"
-                            socialshare-url="{{fbLink}}"
-                            class="fa fa-linkedin"></a>
-                            <a href="javascript:void(0)"
-                            socialshare
-                            socialshare-provider="reddit"
-                            socialshare-text="{{item.title}}"
-                            socialshare-url="{{fbLink}}"
-                            class="fa fa-reddit"></a>
-                        </div>
-                    </div>
+                <div class="social">
+                    <a href="javascript:void(0)" socialshare socialshare-provider="facebook" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
+                        socialshare-url="{{fbLink}}" class="fa fa-facebook"></a>
+                    <a href="javascript:void(0)" socialshare socialshare-provider="twitter" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
+                        socialshare-url="{{fbLink}}" class="fa fa-twitter"></a>
+                    <a href="javascript:void(0)" socialshare socialshare-provider="pinterest" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
+                        class="fa fa-pinterest"></a>
+                    <a href="javascript:void(0)" socialshare socialshare-provider="linkedin" socialshare-text="{{item.title}}" socialshare-description="{{item.description}}"
+                        socialshare-url="{{fbLink}}" class="fa fa-linkedin"></a>
+                    <a href="javascript:void(0)" socialshare socialshare-provider="reddit" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
+                        class="fa fa-reddit"></a>
+                </div>
+            </div>
         </div>
         <div class="col-md-6 col-xs-12" ng-show="token">
-                <div class="" ng-hide="item.follow">
-                    <button type="" ng-click="follow()" class="pochondobutton">এটি পছন্দের তালিকায় যোগ করুন</button>
-                </div>
-                <div class="" ng-show="item.follow">
-                    আপনার পছন্দের তালিকায় রয়েছে 
-                </div>
+            <div class="" ng-hide="item.follow">
+                <button type="" ng-click="follow()" class="pochondobutton">এটি পছন্দের তালিকায় যোগ করুন</button>
+            </div>
+            <div class="" ng-show="item.follow">
+                আপনার পছন্দের তালিকায় রয়েছে
+            </div>
         </div>
 
         <div class="clearfix"></div>
@@ -63,9 +40,11 @@
                 <h3 class="mobile-margin">
                     <span class="numbering-mobile">{{$index+1}}</span>
                 </h3>
-                <a ng-click="vote(option.id)"><p class="vote-up-icon-mobile" ng-hide="item.vote">ভোট দিন
-                    <i class="fa fa-check-square" aria-hidden="true"></i>
-                </p></a>
+                <a ng-click="vote(option.id)">
+                    <p class="vote-up-icon-mobile" ng-hide="item.vote">ভোট দিন
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                    </p>
+                </a>
                 <p class="vote-up-icon-mobile" ng-show="item.votes==0 && item.vote">0% ভোট
                 </p>
                 <p class="vote-up-icon-mobile" ng-show="item.votes!=0 && item.vote">{{(option.votes*100/item.votes).toFixed(2)}}% ভোট
@@ -73,8 +52,10 @@
             </div>
             <a href="javascript:void(0)" ng-click="goToDetails(item.title, $index+1, option)">
                 <div class="article-thumb">
-                    <img ng-show="option.images.length==0" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive" alt="" />
-                    <img ng-hide="option.images.length==0" ng-src="{{option.images[option.images.length-1]}}" class="img-responsive" alt="" />
+                    <img ng-show="option.images.length==0" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive"
+                        alt="" />
+                    <img ng-hide="option.images.length==0" ng-src="http://soft360d.com/topten/images/{{option.images[option.images.length-1].photo}}"
+                        class="img-responsive" alt="" />
                 </div>
             </a>
         </div>
@@ -82,11 +63,13 @@
             <div class="post-excerpt">
                 <h3 style="margin-top: 0px;" class="mobile-margin">
                     <span class="numbering">{{$index+1}}</span>
-                    <a href="#!/option/{{option.id}}" >{{option.title}}</a>
+                    <a href="#!/option/{{option.id}}">{{option.title}}</a>
                 </h3>
-                <a ng-click="vote(option.id)"><p class="vote-up-icon" ng-hide="item.vote">ভোট দিন
-                    <i class="fa fa-check-square" aria-hidden="true"></i>
-                </p></a>
+                <a ng-click="vote(option.id)">
+                    <p class="vote-up-icon" ng-hide="item.vote">ভোট দিন
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                    </p>
+                </a>
                 <p class="vote-up-icon" ng-show="item.votes==0 && item.vote">0% ভোট
                 </p>
                 <p class="vote-up-icon" ng-show="item.votes!=0 && item.vote">{{(option.votes*100/item.votes).toFixed(2)}}% ভোট
@@ -125,7 +108,7 @@
                         <input type="text" ng-model="title" required placeholder="আইটেমের নাম" class="form-control kichucss" id="">
                         <textarea class="form-control" required ng-model="description" placeholder="আইটেমের বর্ণনা" rows="3" id="Textarea1"></textarea>
                     </div>
-                    <input type="submit" class="btn btn-default mod-button"/>
+                    <input type="submit" class="btn btn-default mod-button" />
                 </form>
             </div>
             <div class="modal-footer">
