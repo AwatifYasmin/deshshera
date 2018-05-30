@@ -41,6 +41,7 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
             localStorage.setItem("auth-token", response.api_token);
             localStorage.setItem("user-info", JSON.stringify(response.message));
             $rootScope.user = response.message;
+            $rootScope.token = response.api_token;
             $state.go("profile");
         }
         else {
