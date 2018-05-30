@@ -2323,6 +2323,7 @@ article .h2 {
 
 aside .mini-posts {
     margin-bottom: -30px;
+    margin-top: 16px;
 }
 
 .footer-social4 {
@@ -3922,4 +3923,16 @@ aside .mini-posts {
     letter-spacing: 0.06em;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.post-excerpt h5 {
+    margin-top: 0px;
+}
+
+.lekha-style {
+    letter-spacing: 2px !important;
+    color: white !important;
+    font-family: -webkit-body !important;
+    font-size: 30px !important;
+    padding-top: 33px !important;
 }
