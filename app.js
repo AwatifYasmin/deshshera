@@ -1,4 +1,4 @@
-var myApp = angular.module('deshSera', ['ui.router']);
+var myApp = angular.module('deshSera', ['ui.router', '720kb.socialshare']);
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var index = {
@@ -165,7 +165,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 });
 
-myApp.run(function ($rootScope, $state, baseSvc, $window) {
+myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
   $window.fbAsyncInit = function() {
       FB.init({ 
         appId: '592139807817023',
@@ -177,7 +177,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window) {
   };
   var token = localStorage.getItem("auth-token");
   var guest = localStorage.getItem("guest-token");
-
+  $rootScope.tabOpen = "vote";
   if (token) {
     $rootScope.user = JSON.parse(localStorage.getItem("user-info"));
     $rootScope.token = token;
@@ -203,6 +203,15 @@ myApp.run(function ($rootScope, $state, baseSvc, $window) {
         $rootScope.newItems.forEach(function (item) {
           item.photo = "http://soft360d.com/topten/images/" + item.photo;
         });
+        //console.log($rootScope.newItems);
+      });
+    
+    baseSvc.get("home/voted/items")
+      .then(function (response) {
+        $rootScope.votedItems = response.items;
+        $rootScope.votedItems.forEach(function (item) {
+          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+        });
       });
   }
 
@@ -221,7 +230,12 @@ myApp.run(function ($rootScope, $state, baseSvc, $window) {
     localStorage.removeItem("auth-token");
     localStorage.removeItem("user");
     $rootScope.token = "";
+    $state.go("index");
   }
+
+  $rootScope.$on("$locationChangeSuccess", function() {
+      $anchorScroll();
+  });
 
   $rootScope.$on('$locationChangeStart', function (event, newUrl) {
     if (newUrl.charAt(newUrl.length - 1) == '/') {

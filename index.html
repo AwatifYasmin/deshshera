@@ -57,14 +57,13 @@
 
                     <div class="search-trigger pull-right"></div>
 
-                    <div class="login pull-right">
-                    </div>
+                    <a href="#!/profile" class="login pull-right"  ng-show="token">
+                    </a>
                     <div class="log-reg pull-right hidden-xs" ng-hide="token">
                         <a class="login-hover" href="#!/login">লগইন</a>
                         <a class="login-hover" href="#!/signup">সাইনআপ</a>
                     </div>
                     <div class="log-reg pull-right hidden-xs" ng-show="token">
-                        <a class="login-hover" href="#!/profile">{{user.name}}</a>
                         <a class="login-hover" href="javascript:void(0)" ng-click="logout()">লগ আউট</a>
                     </div>
 
@@ -259,20 +258,20 @@
                         <div role="tabpanel">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs nav-justified" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">জনপ্রিয়</a>
+                                <li role="presentation" ng-class="{'active':tabOpen=='popular'}">
+                                    <a href="javascript:void(0)" aria-controls="popular" role="tab" ng-click="tabOpen='popular'">জনপ্রিয়</a>
                                 </li>
-                                <li role="presentation">
-                                    <a href="#new" aria-controls="new" role="tab" data-toggle="tab">নতুন</a>
+                                <li role="presentation" ng-class="{'active':tabOpen=='new'}">
+                                    <a href="javascript:void(0)" aria-controls="new" role="tab" ng-click="tabOpen='new'">নতুন</a>
                                 </li>
-                                <!-- <li role="presentation">
-                                    <a href="#viewed" aria-controls="viewed" role="tab" data-toggle="tab">শেয়ার</a>
-                                </li> -->
+                                <li role="presentation" ng-class="{'active':tabOpen=='vote'}">
+                                    <a href="javascript:void(0)" aria-controls="vote" role="tab" ng-click="tabOpen='vote'">ভোট</a>
+                                </li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active fade in" id="popular">
+                                <div class=" active fade in" ng-show="tabOpen=='popular'">
                                     <div class="mini-posts">
                                         <article class="style2 style-alt" ng-repeat="item in popularItems">
                                             <div class="row">
@@ -296,9 +295,32 @@
                                     </div>
                                 </div>
 
-                                <div role="tabpanel" class="tab-pane fade in" id="new">
+                                <div class=" fade in" ng-show="tabOpen=='new'">
                                     <div class="mini-posts">
                                         <article class="style2 style-alt" ng-repeat="item in newItems">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <a href="#!/item/{{item.id}}">
+                                                        <div class="article-thumb">
+                                                            <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="post-excerpt no-padding">
+                                                        <h5>
+                                                            <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <div class="fade in" ng-show="tabOpen=='vote'">
+                                    <div class="mini-posts">
+                                        <article class="style2 style-alt" ng-repeat="item in votedItems">
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-4 col-xs-4">
                                                     <a href="#!/item/{{item.id}}">
@@ -472,6 +494,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-socialshare/2.3.11/angular-socialshare.min.js"></script>
     <script src="js/jquery.min.js "></script>
     <script src="js/bootstrap/bootstrap.min.js "></script>
     <script src="js/slick/slick.min.js "></script>

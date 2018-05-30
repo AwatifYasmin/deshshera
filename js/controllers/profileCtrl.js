@@ -1,5 +1,20 @@
 myApp.controller('profileCtrl', function ($scope, baseSvc, $rootScope, $stateParams, $state) {
+    baseSvc.get("following/items")
+      .then(function (response) {
+        $scope.followingItems = response.items;
+        $scope.followingItems.forEach(function (item) {
+          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+        });
+      });
 
+    baseSvc.get("my/items")
+      .then(function (response) {
+        $scope.myItems = response.items;
+        $scope.myItems.forEach(function (item) {
+          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+        });
+        //console.log($rootScope.newItems);
+      });
 });
 
 
