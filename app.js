@@ -106,6 +106,62 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state(signup);
 
+  var banner = {
+    name: 'banner',
+    url: '/banner',
+    templateUrl: 'templates/others/banner.html'
+  }
+
+  $stateProvider.state(banner);
+
+  var contribute = {
+    name: 'contribute',
+    url: '/contribute',
+    templateUrl: 'templates/others/contribute.html'
+  }
+
+  $stateProvider.state(contribute);
+
+  var about = {
+    name: 'about',
+    url: '/about',
+    templateUrl: 'templates/others/about.html'
+  }
+
+  $stateProvider.state(about);
+
+  var terms = {
+    name: 'terms',
+    url: '/terms',
+    templateUrl: 'templates/others/terms.html'
+  }
+
+  $stateProvider.state(terms);
+
+  var privacy = {
+    name: 'privacy',
+    url: '/privacy',
+    templateUrl: 'templates/others/privacy.html'
+  }
+
+  $stateProvider.state(privacy);
+
+  var questions = {
+    name: 'questions',
+    url: '/questions',
+    templateUrl: 'templates/others/questions.html'
+  }
+
+  $stateProvider.state(questions);
+
+  var contact = {
+    name: 'contact',
+    url: '/contact',
+    templateUrl: 'templates/others/contact.html'
+  }
+
+  $stateProvider.state(contact);
+
   $urlRouterProvider.otherwise('/');
 });
 
