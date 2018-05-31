@@ -67,6 +67,7 @@ myApp.controller('optionCtrl', function($scope, baseSvc, $rootScope, $stateParam
         .then(function(response){
             $scope.item = response.item;
             $scope.option = response.option;
+            $scope.images = response.images;
         });
     }
 
