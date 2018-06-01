@@ -17,6 +17,12 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
                             password: response.id
                         }, "login/fb").then(function (loginresponse) {
                             $scope.processLoginResponse(loginresponse);
+                            if(loginresponse.success == true){
+                                $scope.processLoginResponse(loginresponse);
+                            }
+                            else {
+                                $scope.errorMessage = "This email is already taken";
+                            }
                         })
                     }
                     );
@@ -32,11 +38,11 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
             email: $scope.email,
             password: $scope.password
         }, "login").then(function (loginresponse) {
-            if(response.success == true){
+            if(loginresponse.success == true){
                 $scope.processLoginResponse(loginresponse);
             }
-            else if(response.success===false) {
-                $scope.errorMessage = "Wrong username or password.";
+            else if(loginresponse.success===false) {
+                $scope.errorMessage = "Wrong email or password.";
             }
             else {
                 $scope.errorMessage = "Invalid email.";
