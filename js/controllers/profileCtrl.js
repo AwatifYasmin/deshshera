@@ -5,6 +5,8 @@ myApp.controller('profileCtrl', function ($scope, baseSvc, $rootScope, $statePar
         $scope.followingItems.forEach(function (item) {
           item.photo = "http://soft360d.com/topten/images/" + item.photo;
         });
+
+        console.log($rootScope.newItems);
       });
 
     baseSvc.get("my/items")
@@ -13,7 +15,7 @@ myApp.controller('profileCtrl', function ($scope, baseSvc, $rootScope, $statePar
         $scope.myItems.forEach(function (item) {
           item.photo = "http://soft360d.com/topten/images/" + item.photo;
         });
-        //console.log($rootScope.newItems);
+        console.log($rootScope.newItems);
       });
 });
 

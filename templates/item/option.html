@@ -1,13 +1,11 @@
-<div class="title-post">
-    <h2 class="post-heading"><a href="#!/item/{{item.id}}">{{item.title}}</a></h2>
-</div>
+
 <article class="style2" style="padding-bottom: 0px;">
     <div class="row">
         <div class="col-md-4 col-sm-4">
             <a href="#">
                 <div class="article-thumb">
-                    <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" ng-show="images.length==0" class="img-responsive" alt="" />
-                    <img ng-src="http://soft360d.com/topten/images/{{images[0].photo}}" ng-hide="option.images.length==0" class="img-responsive" alt="" />
+                    <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" ng-hide="option.photo" class="img-responsive" alt="" />
+                    <img ng-src="http://soft360d.com/topten/images/{{option.photo}}" ng-show="option.photo" class="img-responsive" alt="" />
                     
                 </div>
             </a>

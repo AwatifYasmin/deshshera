@@ -32,21 +32,25 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
             email: $scope.email,
             password: $scope.password
         }, "login").then(function (loginresponse) {
-            $scope.processLoginResponse(loginresponse);
+            if(response.success == true){
+                $scope.processLoginResponse(loginresponse);
+            }
+            else if(response.success===false) {
+                $scope.errorMessage = "Wrong username or password.";
+            }
+            else {
+                $scope.errorMessage = "Invalid email.";
+            }
+            
         })
     }
 
     $scope.processLoginResponse = function (response) {
-        if(response.success == true){
-            localStorage.setItem("auth-token", response.api_token);
-            localStorage.setItem("user-info", JSON.stringify(response.message));
-            $rootScope.user = response.message;
-            $rootScope.token = response.api_token;
-            $state.go("profile");
-        }
-        else {
-            $scope.error = "This email has already been taken.";
-        }
+        localStorage.setItem("auth-token", response.api_token);
+        localStorage.setItem("user-info", JSON.stringify(response.message));
+        $rootScope.user = response.message;
+        $rootScope.token = response.api_token;
+        $state.go("profile");
     }
 });
 
@@ -63,12 +67,12 @@ myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $statePara
         $scope.error = "";
         if($scope.password.length<8){
             $scope.errorMessage = "Password must be minimum 8 characters.";
-            console.log($scope.errorMessage);
+            //console.log($scope.errorMessage);
             return;
         }
         if($scope.password!=$scope.confirmPassword){
             $scope.errorMessage = "Confirm password doesnot match";
-            console.log($scope.errorMessage);
+            //console.log($scope.errorMessage);
             return;
         }
         baseSvc.post({

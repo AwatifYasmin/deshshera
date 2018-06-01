@@ -52,9 +52,9 @@
             </div>
             <a href="javascript:void(0)" ng-click="goToDetails(item.title, $index+1, option)">
                 <div class="article-thumb">
-                    <img ng-show="option.images.length==0" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive"
+                    <img ng-hide="option.photo" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive"
                         alt="" />
-                    <img ng-hide="option.images.length==0" ng-src="http://soft360d.com/topten/images/{{option.images[option.images.length-1].photo}}"
+                    <img ng-show="option.photo" ng-src="http://soft360d.com/topten/images/{{option.photo}}"
                         class="img-responsive" alt="" />
                 </div>
             </a>
@@ -138,11 +138,16 @@
     <div class="single-meta single-meta2">
         <span>Share: &nbsp;</span>
         <div class="social">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-pinterest"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-            <a href="#" class="fa fa-envelope-o"></a>
+            <a href="javascript:void(0)" socialshare socialshare-provider="facebook" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
+                socialshare-url="{{fbLink}}" class="fa fa-facebook"></a>
+            <a href="javascript:void(0)" socialshare socialshare-provider="twitter" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
+                socialshare-url="{{fbLink}}" class="fa fa-twitter"></a>
+            <a href="javascript:void(0)" socialshare socialshare-provider="pinterest" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
+                class="fa fa-pinterest"></a>
+            <a href="javascript:void(0)" socialshare socialshare-provider="linkedin" socialshare-text="{{item.title}}" socialshare-description="{{item.description}}"
+                socialshare-url="{{fbLink}}" class="fa fa-linkedin"></a>
+            <a href="javascript:void(0)" socialshare socialshare-provider="reddit" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
+                class="fa fa-reddit"></a>
         </div>
     </div>
 

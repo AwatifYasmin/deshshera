@@ -18,38 +18,30 @@
                         </div>
                     </div>
 
-                    <!--
-                    <div>
-                        <ul class="list-inline pro-menu">
-                            <li><a href="#" class="">নোটিফিকেশন </a></li>
-                            <li><a href="#">আমার পোস্ট </a></li>
-                            <li><a href="#" class="pro-active">প্রোফাইল</a></li>
-                        </ul>
-                    </div>
-                        -->
-
                     <div style="margin-top: 10px;">
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
                                     <td>নাম</td>
-                                    <td>এম এ মান্নান</td>
+                                    <td>{{user.name}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#myModal"><i class="fa fa-cog" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#myModal">
+                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ইমেইল</td>
+                                    <td>{{user.email}}</td>
                                     <td></td>
-                                    <td>
-                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#myModal1"><i class="fa fa-cog" aria-hidden="true"></i></button>
-                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>ফোন</td>
+                                    <td></td>
                                     <td></td>
                                     <td>
-                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#myModal4"><i class="fa fa-cog" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#myModal4">Change password
+                                            <i class="fa fa-lock" aria-hidden="true"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -75,8 +67,8 @@
                                         </div>
                                     </div>
                                 </div>
-                </div>
-                            <div class="modal fade" id="myModal1" role="dialog">
+                            </div>
+                            <div class="modal fade" id="myModal4" role="dialog">
                                 <div class="modal-dialog">
 
                                     <!-- Modal content-->
@@ -87,7 +79,7 @@
                                         <div class="modal-body">
                                             <form action="">
                                                 <div class="form-group">
-                                                    <label for="">ইমেইল</label>
+                                                    <label for="">ফোন</label>
                                                     <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <button type="submit" class="btn btn-default mod-button">Submit</button>
@@ -99,65 +91,53 @@
                                     </div>
                                 </div>
                             </div>
-                <div class="modal fade" id="myModal4" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="">
-                                    <div class="form-group">
-                                        <label for="">ফোন</label>
-                                        <input type="text" class="form-control" placeholder="">
-                                    </div>
-                                    <button type="submit" class="btn btn-default mod-button">Submit</button>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </table>
+                        </table>
                     </div>
                     <div style="margin-top: 10px;">
                         <h3>প্রকাশিত পোস্ট</h3>
-                        <table class="table table-hover">
-                            <thead>
+                        <table class="table table-hover" >
+                            <thead ng-show="myItems.length==0">
                                 <tr class="table-cen">
-                                    <th style="width: 20%">নং</th>
-                                    <th style="width: 60%">টাইটেল</th>
-                                    <th style="width: 20%">কাজ</th>
+                                    <th >No item Availble.</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                            <tbody ng-hide="myItems.length==0">
+                                <tr ng-repeat="item in myItems">
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img ng-hide="item.photo" style="height: 100px; width:100px;" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png"
+                                                    class="img-responsive" alt="" />
+                                                <img ng-show="item.photo" style="height: 100px; width:100px;" ng-src="{{item.photo}}" class="img-responsive" alt="" />
+                                            </div>
+                                            <div class="col-md-9">{{item.title}}</div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    
-                    <div style="margin-top: 10px;">
+
+                    <div style="margin-top: 50px;">
                         <h3> আপনার পছন্দের তালিকাগুলো</h3>
                         <table class="table table-hover">
-                            <thead>
+                            <thead ng-show="followingItems.length==0">
                                 <tr class="table-cen">
-                                    <th style="width: 20%">নং</th>
-                                    <th style="width: 80%">টাইটেল</th>
+                                    <th>No item Availble.</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                            <tbody ng-hide="followingItems.length==0">
+                                <tr ng-repeat="item in followingItems">
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img ng-hide="item.photo" style="height: 100px; width:100px;" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png"
+                                                    class="img-responsive" alt="" />
+                                                <img ng-show="item.photo" style="height: 100px; width:100px;" ng-src="{{item.photo}}" class="img-responsive" alt="" />
+                                            </div>
+                                            <div class="col-md-9">{{item.title}}</div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -177,4 +157,3 @@
 </body>
 
 </html>
-

@@ -4,8 +4,11 @@
         <input type="text" ng-model="email" class="form-control logcss" placeholder="ইমেইল" autofocus>
         <input type="password" ng-model="password" class="form-control logcss" placeholder="পাসওয়ার্ড">
         <a type="button" ng-click="login()" class="btn btn-default login-button">প্রবেশ করুন</a>
-        <a href="resetpass.html" class="fpl-link" >পাসওয়ার্ড ভুলে গেছেন? </a>
-        <br />
+        <!-- <a href="resetpass.html" class="fpl-link" >পাসওয়ার্ড ভুলে গেছেন? </a>
+        <br /> -->
+        <label style="color: red">
+            {{errorMessage}}
+        </label>
         <p style="margin-top: 12px;">নতুন একাউন্ট প্রয়োজন?<a href="#!/signup" class="fpl-link">রেজিস্ট্রেশন করুন</a></p>
         <span class="clearfix"></span>
         <h3 class="heading-desc" style="text-align: center; margin-top: 10px;">অথবা</h3>
