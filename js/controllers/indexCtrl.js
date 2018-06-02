@@ -8,7 +8,7 @@ myApp.controller('indexCtrl', function($scope, baseSvc, $rootScope) {
                 item.photo = "http://soft360d.com/topten/images/" + item.photo;
             });
             if($rootScope.newItems.length>3){
-                $scope.newItems = $rootScope.newItems.slice(0,3);
+                $scope.newIndexItems = $rootScope.newItems.slice(0,3);
             }
             else {
                 $scope.newIndexItems = $rootScope.newItems;

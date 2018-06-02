@@ -179,8 +179,16 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
   var guest = localStorage.getItem("guest-token");
   $rootScope.tabOpen = "vote";
   if (token) {
-    $rootScope.user = JSON.parse(localStorage.getItem("user-info"));
-    $rootScope.token = token;
+    baseSvc.get("user/1")
+      .then(function (response) {
+        if(response.success==false){
+          $rootScope.logout();
+        }
+        else {
+          $rootScope.user = JSON.parse(localStorage.getItem("user-info"));
+          $rootScope.token = token;
+        }
+      });
   }
 
   $rootScope.getInfo = function () {
