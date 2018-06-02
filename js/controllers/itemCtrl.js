@@ -9,6 +9,9 @@ myApp.controller('itemCtrl', function($scope, baseSvc, $rootScope, $stateParams,
         baseSvc.get("item/"+id)
         .then(function(response){
             $scope.item = response;
+            $scope.item.options.sort(function(a, b){
+                return b.votes-a.votes;
+            });
         });
     }
 
@@ -63,7 +66,7 @@ myApp.controller('optionCtrl', function($scope, baseSvc, $rootScope, $stateParam
     var id = $stateParams.id;
 
     $scope.getOption = function(){
-        baseSvc.get("item/option/"+id)
+        baseSvc.get("options/"+id)
         .then(function(response){
             $scope.item = response.item;
             $scope.option = response.option;
