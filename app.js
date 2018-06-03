@@ -181,12 +181,13 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
   if (token) {
     baseSvc.get("user/1")
       .then(function (response) {
-        if(response.success==false){
-          $rootScope.logout();
-        }
-        else {
+        console.log(response);
+        if(response.success){
           $rootScope.user = JSON.parse(localStorage.getItem("user-info"));
           $rootScope.token = token;
+        }
+        else {
+          $rootScope.logout();
         }
       });
   }
