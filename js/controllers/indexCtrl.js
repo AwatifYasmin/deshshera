@@ -47,7 +47,7 @@ myApp.controller('categoryWiseCtrl', function($scope, baseSvc, $stateParams) {
     var id = $stateParams.id;
     baseSvc.get("/category/"+id+"/items")
         .then(function(response){
-            $scope.items = response;
+            $scope.items = response.items;
             $scope.items.forEach(function(item) {
                 item.photo = "http://soft360d.com/topten/images/" + item.photo;
             });
@@ -59,7 +59,7 @@ myApp.controller('tagWiseCtrl', function($scope, baseSvc, $stateParams) {
     var id = $stateParams.id;
     baseSvc.get("/tag/"+id+"/items")
         .then(function(response){
-            $scope.items = response;
+            $scope.items = response.items;
             $scope.items.forEach(function(item) {
                 item.photo = "http://soft360d.com/topten/images/" + item.photo;
             });

@@ -61,10 +61,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/item/option.html',
     controller: 'optionCtrl',
     params: {
-      id: null,
       item: null,
-      serial: null,
-      option: null
     }
   }
 
