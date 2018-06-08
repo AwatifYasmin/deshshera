@@ -61,7 +61,7 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
 });
 
 
-myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $stateParams) {
+myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $stateParams, $state) {
     $scope.email = "";
     $scope.name = "";
     $scope.password = "";
@@ -90,6 +90,7 @@ myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $statePara
                 localStorage.setItem("auth-token", response.api_token);
                 localStorage.setItem("user-info", JSON.stringify(response.message));
                 $rootScope.user = response.message;
+                $rootScope.token = response.api_token;
                 $state.go("profile");
             }
             else {
