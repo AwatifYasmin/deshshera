@@ -1,23 +1,26 @@
-
-<article class="style2" style="padding-bottom: 0px;">
+<div class="padding-top-60">
     <div class="row">
-        <div class="col-md-4 col-sm-4">
-            <a href="#">
-                <div class="article-thumb">
-                    <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" ng-hide="option.photo" class="img-responsive" alt="" />
-                    <img ng-src="http://soft360d.com/topten/images/{{option.photo}}" ng-show="option.photo" class="img-responsive" alt="" />
-                    
+        <article class="style2" style="padding-bottom: 0px;">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <a href="#">
+                        <div class="article-thumb">
+                            <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" ng-hide="option.photo" class="img-responsive" alt="" />
+                            <img ng-src="http://soft360d.com/topten/images/{{option.photo}}" ng-show="option.photo" class="img-responsive" alt="" />
+                            
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="col-md-8 col-sm-8">
-            <div class="post-excerpt">
-                <h3 class="mobile-margin">{{option.title}}</h3>
-                <p>{{option.description}}</p>
+                <div class="col-md-8 col-sm-8">
+                    <div class="post-excerpt">
+                        <h3 class="mobile-margin" style="margin-top: 0px;">{{option.title}}</h3>
+                        <p>{{option.description}}</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="fb-comments" fb-comment-box page-href="{{fbLink}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <div class="fb-comments" fb-comment-box page-href="{{fbLink}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
-        </div>
+        </article>  
     </div>
-</article>
+</div>
