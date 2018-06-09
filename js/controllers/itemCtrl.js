@@ -4,7 +4,6 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
     $scope.description = "";
     var id = $stateParams.id;
     $scope.fbLink = window.location.href;
-
     $scope.getItem = function () {
         baseSvc.get("item/" + id)
             .then(function (response) {
@@ -12,6 +11,10 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
                 $scope.item.options.sort(function (a, b) {
                     return b.votes - a.votes;
                 });
+                $rootScope.title = $scope.item.title;
+                $rootScope.description = $scope.item.description;
+                $rootScope.url = $scope.fbLink;
+                $rootScope.image = "http://soft360d.com/topten/images/"+$scope.item.photo;
             });
     }
 

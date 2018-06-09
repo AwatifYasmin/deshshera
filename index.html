@@ -9,8 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{title}}</title>
-    <meta name="description" content="Page description. No longer than 155 characters." />
+    <title>{{title}}</title>    
+    <meta name="title" content="{{title}}." />
+    <meta name="description" content="{{description}}" />
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary">
@@ -24,8 +25,8 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{url}}" />
     <meta property="og:image" content="{{image}}" />
-    <meta property="og:description" content="{{description}}" /> 
-    <meta property="og:site_name" content="Desh sera" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:site_name" content="DeshShera" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -386,7 +387,7 @@
                             <p>সরাসরি আপনার ইনবক্সে সেরা ভাইরাল পোস্টগুলি পেতে </p>
                             <form>
                                 <input placeholder="আপনার ইমেইল এড্রেস দিন " class="e-mail " name="email " id="address
-                                " data-validate="validate(required, email) " type="email ">
+                                    " data-validate="validate(required, email) " type="email ">
                                 <button type="submit ">সাবস্ক্রাইব করুন</button>
                             </form>
                         </div>
@@ -493,6 +494,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-socialshare/2.3.11/angular-socialshare.min.js"></script>
+    <script src="js/directive.pagination.js"></script>
     <script src="js/jquery.min.js "></script>
     <script src="js/bootstrap/bootstrap.min.js "></script>
     <script src="js/slick/slick.min.js "></script>

@@ -1,4 +1,4 @@
-var myApp = angular.module('deshSera', ['ui.router', '720kb.socialshare']);
+var myApp = angular.module('deshSera', ['ui.router', '720kb.socialshare', 'ng-pagination']);
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var index = {
@@ -172,6 +172,10 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
         version: 'v2.4'
       });
   };
+  $rootScope.title = "Desh shera";
+  $rootScope.description = "Desh shera";
+  $rootScope.url = "http://deshshera.com";
+  $rootScope.image = "";
   var token = localStorage.getItem("auth-token");
   var guest = localStorage.getItem("guest-token");
   $rootScope.tabOpen = "vote";
@@ -258,11 +262,18 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       $rootScope.showSideBar = true;
     }
 
-    if (newUrl.indexOf("idea") != -1 ) {
+    if (newUrl.indexOf("idea") != -1) {
       if (!$rootScope.token) {
         window.location.href = '#!/login';
         $rootScope.message = "You have to log in first."
       }
+    }
+
+    if (newUrl.indexOf("item") == -1){
+      $rootScope.title = "DeshShera";
+      $rootScope.description = "Desh shera description";
+      $rootScope.url = "http://deshshera.com";
+      $rootScope.image = "";
     }
   });
 });
