@@ -2,7 +2,8 @@
 
     <div class="row" ng-hide="loading">
         <div class="col-md-12">
-            <h3 ng-show="items.length" style="margin-bottom: 25px; font-weight: 600;">নতুন</h3>
+            <h3 ng-show="items.length" style="margin-bottom: 25px; font-weight: 600;">Showing results for {{searchText}} </h3>
+            <h3 ng-hide="items.length" style="margin-bottom: 25px; font-weight: 600;">Nothing found for {{searchText}} </h3>
         </div>
         <div class="row">
             <div class="col-md-6" ng-repeat="item in items">
@@ -38,5 +39,6 @@
     <div class="col-md-12" style="text-align: center" ng-show="loading">
         <img src="img/spinner.gif">
     </div>
+
 </div>
 <!-- // HOME SECTION 1 -->

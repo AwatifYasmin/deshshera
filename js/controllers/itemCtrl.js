@@ -4,7 +4,9 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
     $scope.description = "";
     var id = $stateParams.id;
     $scope.fbLink = window.location.href;
+    $scope.loading = false;
     $scope.getItem = function () {
+        $scope.loading = true;
         baseSvc.get("item/" + id)
             .then(function (response) {
                 $scope.item = response;
@@ -14,6 +16,7 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
                 $rootScope.title = $scope.item.title;
                 $rootScope.description = $scope.item.description;
                 $rootScope.url = $scope.fbLink;
+                $scope.loading = false;
                 $rootScope.image = "http://soft360d.com/topten/images/"+$scope.item.photo;
             });
     }
@@ -75,13 +78,13 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
 
 myApp.controller('optionCtrl', function ($scope, baseSvc, $rootScope, $stateParams, $state) {
     var id = $stateParams.id;
-
+    $scope.loading = false;
     $scope.getOption = function () {
+        $scope.loading = true;
         baseSvc.get("options/" + id)
             .then(function (response) {
-                $scope.item = response.item;
                 $scope.option = response.option;
-                $scope.images = response.images;
+                $scope.loading = false;
             });
     }
 

@@ -1,10 +1,9 @@
 <div class="title-post">
-    <h2 class="post-heading">{{item.title}}</h2>
-    <h6 class="credit">আইডিয়া কৃতিত্ব: {{item.user.name}}</h6>
-    <div class="single-meta">
+    <h2 ng-hide="loading" class="post-heading">{{item.title}}</h2>
+    <h6 ng-hide="loading" class="credit">আইডিয়া কৃতিত্ব: {{item.user.name}}</h6>
+    <div class="single-meta" ng-hide="loading">
         <div class="col-md-6 col-xs-12">
             <div class="meta pull-left" style="margin-top: 3px;">
-
                 <div class="social">
                     <a href="javascript:void(0)" socialshare socialshare-provider="facebook" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
                         socialshare-url="{{fbLink}}" class="fa fa-facebook"></a>
@@ -30,6 +29,9 @@
 
         <div class="clearfix"></div>
     </div>
+    <div class="col-md-12" style="text-align: center" ng-show="loading">
+        <img src="img/spinner.gif">
+    </div>
 </div>
 
 
@@ -54,8 +56,7 @@
                 <div class="article-thumb">
                     <img ng-hide="option.photo" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive"
                         alt="" />
-                    <img ng-show="option.photo" ng-src="http://soft360d.com/topten/images/{{option.photo}}"
-                        class="img-responsive" alt="" />
+                    <img ng-show="option.photo" ng-src="http://soft360d.com/topten/images/{{option.photo}}" class="img-responsive" alt="" />
                 </div>
             </a>
         </div>
@@ -90,7 +91,7 @@
 </article>
 
 <div class="clearfix"></div>
-<div class="">
+<div class="" ng-hide="loading">
     <button class="morelink" style="height: 5em;" data-toggle="modal" data-target="#myModal7">তালিকায় আপনার প্রিয়/পছন্দ বাদ পড়েছে ? যোগ করে দিন !!!</button>
 </div>
 <div class="clearfix"></div>
@@ -117,18 +118,8 @@
         </div>
     </div>
 </div>
-<!-- 
-<ul class="pagination" style="float: right;">
-    <li class="disabled"><a href="#">«</a></li>
-    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">»</a></li>
-</ul> -->
 <div class="clearfix"></div>
-<div class="blog-single" style="margin-top: 2em;">
+<div class="blog-single" ng-hide="loading" style="margin-top: 2em;">
 
     <div class="tags">
         <span>Tags:</span> &nbsp;
@@ -157,7 +148,7 @@
 </div>
 
 <div class="clearfix"></div>
-<div class="post-nav" style="margin-top: 2em;">
+<div ng-hide="loading" class="post-nav" style="margin-top: 2em;">
     <div class="row">
         <div class="col-md-6 text-right" ng-show="item.prev">
             <a href="#!/item/{{item.prev.id}}">
@@ -184,6 +175,6 @@
         </div>
     </div>
 </div>
-<div class="comments" style="margin-top: 2em; padding-bottom: 2em;">
+<div ng-hide="loading" class="comments" style="margin-top: 2em; padding-bottom: 2em;">
     <div class="fb-comments" fb-comment-box page-href="{{fbLink}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
 </div>

@@ -19,6 +19,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state(newItem);
 
+  var search = {
+    name: 'search',
+    url: '/search/{text}',
+    templateUrl: 'templates/search/index.html',
+    controller: 'searchCtrl',
+    params: {
+      text: ""
+    }
+  }
+
+  $stateProvider.state(search);
+
   var popular = {
     name: 'popular',
     url: '/popular',
@@ -241,6 +253,10 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
     localStorage.removeItem("user");
     $rootScope.token = "";
     $state.go("index");
+  }
+
+  $rootScope.search = function(searchText){
+    $state.go("search", {text: searchText})
   }
 
   $rootScope.$on("$locationChangeSuccess", function() {
