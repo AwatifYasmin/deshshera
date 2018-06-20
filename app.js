@@ -1,4 +1,4 @@
-var myApp = angular.module('deshSera', ['ui.router', '720kb.socialshare', 'ng-pagination']);
+var myApp = angular.module('deshSera', ['ui.router', '720kb.socialshare', 'ng-pagination', 'ngMeta']);
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var index = {
@@ -174,7 +174,9 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 });
 
-myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
+myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll, ngMeta) {
+  ngMeta.init();
+
   $window.fbAsyncInit = function() {
       FB.init({ 
         appId: '592139807817023',
@@ -184,10 +186,12 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
         version: 'v2.4'
       });
   };
+  
   $rootScope.title = "Desh shera";
   $rootScope.description = "Desh shera";
   $rootScope.url = "http://deshshera.com";
   $rootScope.image = "";
+
   var token = localStorage.getItem("auth-token");
   var guest = localStorage.getItem("guest-token");
   $rootScope.tabOpen = "vote";
@@ -286,10 +290,18 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
     }
 
     if (newUrl.indexOf("item") == -1){
-      $rootScope.title = "DeshShera";
-      $rootScope.description = "Desh shera description";
-      $rootScope.url = "http://deshshera.com";
-      $rootScope.image = "";
+      console.log($rootScope.title);
+      ngMeta.setTitle($rootScope.title, "");
+      ngMeta.setTag('author', '360 Degree Software');
+      ngMeta.setTag('image', 'http://placeholder.com/abc.jpg');
+      ngMeta.setTag('description', $rootScope.description);
+
+      ngMeta.setTag('og:title', $rootScope.title);
+      ngMeta.setTag('og:description', $rootScope.description);
+      ngMeta.setTag('og:url', $rootScope.url);
+      ngMeta.setTag('og:image', $rootScope.image);
+      //Set default tags (non-default tags, like author and image above, are NOT cleared)
+      //ngMeta.resetMeta();
     }
   });
 });

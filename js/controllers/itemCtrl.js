@@ -1,4 +1,4 @@
-myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams, $state) {
+myApp.controller('itemCtrl', function ($scope, baseSvc, ngMeta, $rootScope, $stateParams, $state) {
     $scope.items = [];
     $scope.title = "";
     $scope.description = "";
@@ -13,11 +13,21 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
                 $scope.item.options.sort(function (a, b) {
                     return b.votes - a.votes;
                 });
-                $rootScope.title = $scope.item.title;
-                $rootScope.description = $scope.item.description;
-                $rootScope.url = $scope.fbLink;
                 $scope.loading = false;
-                $rootScope.image = "http://soft360d.com/topten/images/"+$scope.item.photo;
+                ngMeta.setTitle($scope.item.title, "");
+                ngMeta.setTag('author', '360 Degree Software');
+                ngMeta.setTag('image', "http://soft360d.com/topten/images/" + $scope.item.photo);
+                ngMeta.setTag('description', $scope.item.description);
+
+                ngMeta.setTag('og:title', $scope.item.title);
+                ngMeta.setTag('og:description', $scope.item.description);
+                ngMeta.setTag('og:url', $scope.fbLink);
+                ngMeta.setTag('og:image', "http://soft360d.com/topten/images/" + $scope.item.photo);
+                // $rootScope.title = $scope.item.title;
+                // $rootScope.description = $scope.item.description;
+                // $rootScope.url = $scope.fbLink;
+                // $scope.loading = false;
+                // $rootScope.image = "http://soft360d.com/topten/images/" + $scope.item.photo;
             });
     }
 
@@ -33,7 +43,7 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
                 options.push(response.id);
                 baseSvc.post({
                     options: options
-                }, "item/"+id+"/options")
+                }, "item/" + id + "/options")
                     .then(function (response) {
 
                         if (response.success == true) {
