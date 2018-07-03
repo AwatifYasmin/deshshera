@@ -2315,6 +2315,7 @@ article .h2 {
     border: none !important;
     color: #000;
     background: #fff;
+    box-shadow: 0px 2px 3px #ddd;
 }
 
 .tab-content > .tab-pane {
@@ -3153,7 +3154,7 @@ aside .mini-posts {
         float: right;
         padding: 0;
         margin-top: 32px;
-        margin-right: -5px;
+        margin-right: -40px;
         margin-bottom: 8px;
         background-color: transparent;
         background-image: none;
@@ -3343,6 +3344,18 @@ aside .mini-posts {
     }
 }
 
+@media only screen and (max-width: 767px) {
+    .mob-block {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .padding-yesornot {
+        padding-top: 60px;
+    }
+}
+
 .remove-padding {
     padding-left: 0;
 }
@@ -3384,7 +3397,7 @@ aside .mini-posts {
 }
 
     .vote-up-icon:hover {
-        color: #ffd230;
+        color: #19398a;
     }
 
 .form-signin {
@@ -3408,7 +3421,7 @@ aside .mini-posts {
 
 .numbering-mobile {
     float: left;
-    background: #ffd230;
+    background: red;
     width: 40px;
     height: 40px;
     border: 0;
@@ -3804,6 +3817,7 @@ aside .mini-posts {
     margin-bottom: 1em;
     float: right;
     background-color: #19398A;
+    color: white;
 }
 
 .probut {
@@ -3876,7 +3890,7 @@ aside .mini-posts {
 }
 
 .comment-mo {
-    color: #ffd230;
+    color: red;
     margin-bottom: 0px;
     margin-top: 6px;
 }
@@ -3936,3 +3950,34 @@ aside .mini-posts {
     font-size: 30px !important;
     padding-top: 33px !important;
 }
+
+.no-margin-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
+}
+
+.image-perfect {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 250px;
+    width: auto !important;
+}
+
+.jumbotron {
+    background: #358CCE;
+    color: #FFF;
+    border-radius: 0px;
+    }
+    .jumbotron-sm { padding-top: 24px;
+    padding-bottom: 24px; }
+    .jumbotron small {
+    color: #FFF;
+    }
+    .h1 small {
+    font-size: 24px;
+    }
