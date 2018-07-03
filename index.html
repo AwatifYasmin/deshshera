@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" ng-app="deshSera">
 
 <head>
 
@@ -9,7 +9,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+<<<<<<< HEAD
     <title>Deshshera.com</title>
+=======
+    <title>{{title}}</title>    
+    <meta name="title" content="{{title}}." />
+    <meta name="description" content="{{description}}" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <!-- Twitter Summary card images must be at least 120x120px -->
+    <meta name="twitter:image" content="{{image}}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{url}}" />
+    <meta property="og:image" content="{{image}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:site_name" content="DeshShera" />
+>>>>>>> 282ebb2013b4c21f6ee1024a4f06ef8084f9e592
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.png">
@@ -29,14 +50,14 @@
 
 </head>
 
-<body ng-app="deshSera">
+<body>
 
     <div class="wrapper">
         <header class="header header-megamenu">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container">
                     <div class="search-bar">
-                        <input type="search" placeholder="এখানে অনুসন্ধান করুন...">
+                        <input type="search" ng-model="searchText" ng-keyup="$event.keyCode === 13 && search(searchText)" placeholder="এখানে অনুসন্ধান করুন...">
                         <div class="search-close">
                             <i class="fa fa-times"></i>
                         </div>
@@ -370,7 +391,7 @@
                             <p>সরাসরি আপনার ইনবক্সে সেরা ভাইরাল পোস্টগুলি পেতে </p>
                             <form>
                                 <input placeholder="আপনার ইমেইল এড্রেস দিন " class="e-mail " name="email " id="address
-                                " data-validate="validate(required, email) " type="email ">
+                                    " data-validate="validate(required, email) " type="email ">
                                 <button type="submit ">সাবস্ক্রাইব করুন</button>
                             </form>
                         </div>
@@ -407,16 +428,16 @@
                             <h5 class="text-white ">মেনু</h5>
                             <ul class="footer-links ">
                                 <li>
-                                    <a href="# ">হোম</a>
+                                    <a href="#!/">হোম</a>
                                 </li>
                                 <li>
-                                    <a href="# ">আপনার আইডিয়া</a>
+                                    <a href="#!/idea">আপনার আইডিয়া</a>
                                 </li>
                                 <li>
-                                    <a href="# ">নতুন</a>
+                                    <a href="#!/new">নতুন</a>
                                 </li>
                                 <li>
-                                    <a href="# ">জনপ্রিয়</a>
+                                    <a href="#!/popular">জনপ্রিয়</a>
                                 </li>
                             </ul>
                         </div>
@@ -461,6 +482,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-socialshare/2.3.11/angular-socialshare.min.js"></script>
+    <script src="js/directive.pagination.js"></script>
     <script src="js/jquery.min.js "></script>
     <script src="js/bootstrap/bootstrap.min.js "></script>
     <script src="js/slick/slick.min.js "></script>

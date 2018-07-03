@@ -1,29 +1,41 @@
 <div class="padding-top-60">
-    <div class="row">
-        <div class="col-md-6" ng-repeat="item in items">
-            <div class="mini-posts" style="min-height: 80px;">
-                <article class="style2 style-alt">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <a href="#!/item/{{item.id}}">
-                                <div class="article-thumb">
-                                    <img ng-src="{{item.photo}}" class="img-responsive" alt="" style="max-height: 80px;">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-8 col-sm-8 col-xs-8">
-                            <div class="post-excerpt no-padding">
+    <div class="row" ng-hide="loading">
+        <div class="col-md-12">
+            <h3 ng-show="items.length" style="margin-bottom: 25px; font-weight: 600;">জনপ্রিয়</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6" ng-repeat="item in items">
+                <div class="mini-posts" style="min-height: 80px;">
+                    <article class="style2 style-alt">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <a href="#!/item/{{item.id}}">
+                                    <div class="article-thumb">
+                                        <img ng-src="{{item.photo}}" class="img-responsive" alt="" style="max-height: 80px;">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <div class="post-excerpt no-padding">
 
-                                <h5>
-                                    <a href="#!/item/{{item.id}}">{{item.title}}</a>
-                                </h5>
+                                    <h5>
+                                        <a href="#!/item/{{item.id}}">{{item.title}}</a>
+                                    </h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
+                </div>
             </div>
         </div>
+        <div class="row" ng-show="total>12">
+            <p>Showing {{(page-1)*12+1}} to {{page*12>total?total:page*12}} of {{total}}</p>
+            <pagination count="total" take="12" activate="getItems" max-size="10" hide-arrows="false"></pagination>
+        </div>
+    </div>
+    <div class="col-md-12" style="text-align: center" ng-show="loading">
+        <img src="img/spinner.gif">
     </div>
 </div>
 <!-- // HOME SECTION 1 -->
