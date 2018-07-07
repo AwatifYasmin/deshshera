@@ -69,7 +69,7 @@ myApp.controller('categoryWiseCtrl', function ($scope, baseSvc, $stateParams) {
     $scope.page = 0;
     $scope.total = 0;
     $scope.loading = false;
-
+    console.log("category: " + id);
     $scope.getItems = function (page, take) {
         $scope.loading = true;
         $scope.page = page;

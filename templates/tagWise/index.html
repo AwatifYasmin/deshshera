@@ -1,42 +1,20 @@
 <div class="padding-top-60">
 
-<<<<<<< HEAD
     <div class="row">
-        <h2 ng-show="items.length==0">এই ট্যাগের কোন কিছু পাওয়া যায়নি</h2>
+        <h2 ng-show="items.length==0 && !loading">এই ট্যাগের কোন কিছু পাওয়া যায়নি</h2>
         <div class="col-md-6" ng-repeat="item in items" ng-show="items.length!=0">
             <div class="mini-posts">
                 <article class="style2 style-alt">
-                    <div class="row">
+                    <div class="row" style="height: 80px;">
                         <div class="col-md-4 col-sm-4 col-xs-4">
                             <a href="#!/item/{{item.id}}">
                                 <div class="article-thumb">
-                                    <img ng-src="{{item.photo}}" class="img-responsive" alt="">
+                                    <img ng-src="{{item.photo}}" class="img-responsive" alt="" style="max-height: 80px;">
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-8 col-sm-8 col-xs-8">
                             <div class="post-excerpt no-padding">
-=======
-    <div class="row" ng-hide="loading">
-        <div class="col-md-12">
-            <h3 ng-show="items.length" style="margin-bottom: 25px; font-weight: 600;">Showing results for {{tag.name}} </h3>
-            <h3 ng-hide="items.length" style="margin-bottom: 25px; font-weight: 600;">Nothing found for {{tag.name}} </h3>
-        </div>
-        <div class="row">
-            <div class="col-md-6" ng-repeat="item in items" ng-show="items.length!=0">
-                <div class="mini-posts">
-                    <article class="style2 style-alt">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                <a href="#!/item/{{item.id}}">
-                                    <div class="article-thumb">
-                                        <img ng-src="{{item.photo}}" class="img-responsive" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                <div class="post-excerpt no-padding">
->>>>>>> 282ebb2013b4c21f6ee1024a4f06ef8084f9e592
 
                                     <h5>
                                         <a href="#!/item/{{item.id}}">{{item.title}}</a>
