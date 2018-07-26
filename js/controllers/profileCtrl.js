@@ -3,6 +3,12 @@ myApp.controller('profileCtrl', function ($scope, baseSvc, $rootScope, $statePar
     $scope.pass = "";
     $scope.confirm = "";
 
+    var token = localStorage.getItem("auth-token");
+    if(!token){
+        $rootScope.message = "You have to log in first.";
+        $state.go("login");
+    }
+
     baseSvc.get("following/items")
       .then(function (response) {
         $scope.followingItems = response.items;
@@ -68,6 +74,12 @@ myApp.controller('ideaCtrl', function ($scope, baseSvc, $rootScope, $stateParams
             title: '',
             description: ''
         }]
+    }
+
+    var token = localStorage.getItem("auth-token");
+    if(!token){
+        $rootScope.message = "You have to log in first.";
+        $state.go("login");
     }
 
     $scope.addNewOption = function () {
