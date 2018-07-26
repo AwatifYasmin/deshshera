@@ -3981,3 +3981,26 @@ aside .mini-posts {
     .h1 small {
     font-size: 24px;
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 4000px) {
+        .desktop-minipost {
+            min-height: 245px;
+        }    
+    }
+
+
+
+    @media only screen and (min-width: 768px) and (max-width: 4000px) {
+        .minipost-image {
+            height: 105px;
+        }   
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .minipost-image {
+            max-height: 150px;
+        }    
+    }
+    
+    

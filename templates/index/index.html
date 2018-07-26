@@ -1,15 +1,15 @@
 <div class="padding-top-60">
     <div class="mini-posts">
         <div class="row" ng-hide="loading">
-            <div class="col-md-3 col-sm-3" ng-repeat="item in randomItems">
-                <article class="style2 style-alt">
+            <div class="col-md-3 col-sm-3 desktop-minipost" ng-repeat="item in randomItems">
+                <article class="style2 style-alt" style="margin-bottom: 0px;">
                     <a href="#!/item/{{item.id}}">
                         <div class="article-thumb">
-                            <img ng-src="{{item.photo}}" class="img-responsive" alt="" style="height: 105px;">
+                            <img ng-src="{{item.photo}}" class="img-responsive minipost-image" alt="" style="">
                         </div>
                     </a>
                     <div class="post-excerpt no-padding">
-                        <h5><a href="#!/item/{{item.id}}">{{item.title}}</a></h5>
+                        <h5 style="line-height: 25px; margin-top: 6px;"><a href="#!/item/{{item.id}}">{{item.title}}</a></h5>
                     </div>
                 </article>
             </div>
