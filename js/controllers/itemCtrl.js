@@ -1,4 +1,4 @@
-myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams, $state) {
+myApp.controller('itemCtrl', function ($scope, $timeout, baseSvc, $rootScope, $stateParams, $state) {
     $scope.items = [];
     $scope.title = "";
     $scope.description = "";
@@ -13,15 +13,31 @@ myApp.controller('itemCtrl', function ($scope, baseSvc, $rootScope, $stateParams
                 $scope.item.options.sort(function (a, b) {
                     return b.votes - a.votes;
                 });
-                $rootScope.title = $scope.item.title;
-                $rootScope.description = $scope.item.description;
-                $rootScope.url = $scope.fbLink;
+                $scope.total = $scope.item.options.length;
                 $scope.loading = false;
-                $rootScope.image = "http://soft360d.com/topten/images/"+$scope.item.photo;
+                $scope.getOptions(1,0);
             });
     }
 
-    $scope.getItem()
+    $scope.getItem();
+
+    $scope.getOptions = function (page, take) {
+        if($scope.loading){
+            return;
+        }
+        $scope.page = page;
+        var start = (page-1)*10;
+        var end = start+9;
+        console.log(page+" "+start);
+        if(end>=$scope.total){
+            end = $scope.total-1;
+        }
+        $scope.options = [];
+        for(var i=start;i<=end;i++){
+            $scope.options.push($scope.item.options[i]);
+        }
+        console.log($scope.options);
+    }
 
     $scope.addOption = function () {
         baseSvc.post({

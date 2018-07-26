@@ -5,8 +5,9 @@
             <label for="comment">শিরোনামঃ</label>
             <textarea class="form-control" ng-model="idea.title" required placeholder="লিস্টের শিরোনাম লিখুন (উদাহরণ: আপনার প্রিয় খেলা ) " rows="3" id="comment"></textarea>
         </div>
-        <div class="form-group" ng-repeat="option in idea.options">
+        <div class="form-group" ng-repeat="option in idea.options track by $index">
             <label for="usr">{{$index+1}}</label>
+            <a href="javascript:void(0)" ng-show="idea.options.length>1" style="float: right; color: red;" ng-click="remove($index)">Remove</a>
             <input type="text" ng-model="option.title" required placeholder="আইটেমের নাম" class="form-control kichucss" id="">
             <textarea class="form-control" ng-model="option.description" required placeholder="আইটেমের বর্ণনা" rows="3" id="Textarea1"></textarea>
         </div>

@@ -1,5 +1,5 @@
 <div class="padding-yesornot">
-    <div class="row">
+    <div class="row" ng-hide="loading">
         <article class="style2" style="padding-bottom: 0px; border: none;">
                 <div class="col-md-4 col-sm-4">
                     <a href="#">
@@ -20,5 +20,8 @@
                     <div class="fb-comments" fb-comment-box page-href="{{fbLink}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
                 </div>
         </article>  
+    </div>
+    <div class="col-md-12" style="text-align: center" ng-show="loading">
+        <img src="img/spinner.gif">
     </div>
 </div>

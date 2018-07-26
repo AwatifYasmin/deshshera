@@ -17,6 +17,16 @@ myApp.controller('indexCtrl', function ($scope, baseSvc, $rootScope) {
 
             $scope.loading = false;
         });
+    
+    baseSvc.get("home/items")
+        .then(function (response) {
+            $scope.randomItems = response.items;
+            $scope.randomItems.forEach(function (item) {
+                item.photo = "http://soft360d.com/topten/images/" + item.photo;
+            });
+
+            $scope.loading = false;
+        });
 });
 
 

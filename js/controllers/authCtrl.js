@@ -1,6 +1,7 @@
 myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookService, $stateParams, $state) {
     $scope.email = "";
     $scope.password = "";
+
     $scope.fblogin = function () {
         var FB = window.FB;
         var scopes = 'public_profile,email';
@@ -17,7 +18,7 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
                             password: response.id
                         }, "login/fb").then(function (loginresponse) {
                             $scope.processLoginResponse(loginresponse);
-                            if(loginresponse.success == true){
+                            if (loginresponse.success == true) {
                                 $scope.processLoginResponse(loginresponse);
                             }
                             else {
@@ -38,16 +39,16 @@ myApp.controller('loginCtrl', function ($scope, baseSvc, $rootScope, facebookSer
             email: $scope.email,
             password: $scope.password
         }, "login").then(function (loginresponse) {
-            if(loginresponse.success == true){
+            if (loginresponse.success == true) {
                 $scope.processLoginResponse(loginresponse);
             }
-            else if(loginresponse.success===false) {
+            else if (loginresponse.success === false) {
                 $scope.errorMessage = "Wrong email or password.";
             }
             else {
                 $scope.errorMessage = "Invalid email.";
             }
-            
+
         })
     }
 
@@ -71,12 +72,12 @@ myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $statePara
 
     $scope.register = function () {
         $scope.error = "";
-        if($scope.password.length<8){
+        if ($scope.password.length < 8) {
             $scope.errorMessage = "Password must be minimum 8 characters.";
             //console.log($scope.errorMessage);
             return;
         }
-        if($scope.password!=$scope.confirmPassword){
+        if ($scope.password != $scope.confirmPassword) {
             $scope.errorMessage = "Confirm password doesnot match";
             //console.log($scope.errorMessage);
             return;
@@ -86,7 +87,7 @@ myApp.controller('signupCtrl', function ($scope, baseSvc, $rootScope, $statePara
             email: $scope.email,
             password: $scope.password
         }, "register").then(function (response) {
-            if(response.success == true){
+            if (response.success == true) {
                 localStorage.setItem("auth-token", response.api_token);
                 localStorage.setItem("user-info", JSON.stringify(response.message));
                 $rootScope.user = response.message;

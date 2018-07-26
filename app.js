@@ -95,7 +95,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     controller: 'profileCtrl'
   }
 
-  $stateProvider.state(profile );
+  $stateProvider.state(profile);
 
   var login = {
     name: 'login',
@@ -175,14 +175,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
-  $window.fbAsyncInit = function() {
-      FB.init({ 
-        appId: '592139807817023',
-        status: true, 
-        cookie: true, 
-        xfbml: true,
-        version: 'v2.4'
-      });
+  $window.fbAsyncInit = function () {
+    FB.init({
+      appId: '592139807817023',
+      status: true,
+      cookie: true,
+      xfbml: true,
+      version: 'v2.4'
+    });
   };
   $rootScope.title = "Desh shera";
   $rootScope.description = "Desh shera";
@@ -195,7 +195,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
     baseSvc.get("user/1")
       .then(function (response) {
         console.log(response);
-        if(response.success){
+        if (response.success) {
           $rootScope.user = JSON.parse(localStorage.getItem("user-info"));
           $rootScope.token = token;
         }
@@ -227,7 +227,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
         });
         //console.log($rootScope.newItems);
       });
-    
+
     baseSvc.get("home/voted/items")
       .then(function (response) {
         $rootScope.votedItems = response.items;
@@ -248,19 +248,19 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
     $rootScope.getInfo();
   }
 
-  $rootScope.logout = function(){
+  $rootScope.logout = function () {
     localStorage.removeItem("auth-token");
     localStorage.removeItem("user");
     $rootScope.token = "";
     $state.go("index");
   }
 
-  $rootScope.search = function(searchText){
-    $state.go("search", {text: searchText})
+  $rootScope.search = function (searchText) {
+    $state.go("search", { text: searchText })
   }
 
-  $rootScope.$on("$locationChangeSuccess", function() {
-      $anchorScroll();
+  $rootScope.$on("$locationChangeSuccess", function () {
+    $anchorScroll();
   });
 
   $rootScope.$on('$locationChangeStart', function (event, newUrl) {
@@ -280,12 +280,15 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
 
     if (newUrl.indexOf("idea") != -1) {
       if (!$rootScope.token) {
-        window.location.href = '#!/login';
-        $rootScope.message = "You have to log in first."
+        var token = localStorage.getItem("auth-token");
+        if(!token){
+          window.location.href = '#!/login';
+          $rootScope.message = "You have to log in first.";
+        }
       }
     }
 
-    if (newUrl.indexOf("item") == -1){
+    if (newUrl.indexOf("item") == -1) {
       $rootScope.title = "DeshShera";
       $rootScope.description = "Desh shera description";
       $rootScope.url = "http://deshshera.com";

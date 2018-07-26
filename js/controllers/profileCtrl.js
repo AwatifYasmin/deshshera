@@ -79,6 +79,10 @@ myApp.controller('ideaCtrl', function ($scope, baseSvc, $rootScope, $stateParams
         $scope.idea.options.push(option);
     }
 
+    $scope.remove = function(index){
+        $scope.idea.options.splice(index, 1);
+    }
+
     $scope.submit = function () {
         baseSvc.post({
             json: JSON.stringify($scope.idea)

@@ -5,16 +5,16 @@
         <div class="col-md-6 col-xs-12 no-margin-padding">
             <div class="meta pull-left" style="margin-top: 3px;">
                 <div class="social">
-                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="facebook" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
-                        socialshare-url="{{fbLink}}" class="fa fa-facebook"></a>
-                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="twitter" socialshare-text="{{item.title}}" socialshare-hashtags="#deshSera"
-                        socialshare-url="{{fbLink}}" class="fa fa-twitter"></a>
-                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="pinterest" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
-                        class="fa fa-pinterest"></a>
-                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="linkedin" socialshare-text="{{item.title}}" socialshare-description="{{item.description}}"
-                        socialshare-url="{{fbLink}}" class="fa fa-linkedin"></a>
-                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="reddit" socialshare-text="{{item.title}}" socialshare-url="{{fbLink}}"
-                        class="fa fa-reddit"></a>
+                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="facebook" socialshare-text="{{item.title}}"
+                        socialshare-hashtags="#deshSera" socialshare-url="{{fbLink}}" class="fa fa-facebook"></a>
+                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="twitter" socialshare-text="{{item.title}}"
+                        socialshare-hashtags="#deshSera" socialshare-url="{{fbLink}}" class="fa fa-twitter"></a>
+                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="pinterest" socialshare-text="{{item.title}}"
+                        socialshare-url="{{fbLink}}" class="fa fa-pinterest"></a>
+                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="linkedin" socialshare-text="{{item.title}}"
+                        socialshare-description="{{item.description}}" socialshare-url="{{fbLink}}" class="fa fa-linkedin"></a>
+                    <a style="margin-left: 0px !important;" href="javascript:void(0)" socialshare socialshare-provider="reddit" socialshare-text="{{item.title}}"
+                        socialshare-url="{{fbLink}}" class="fa fa-reddit"></a>
                 </div>
             </div>
         </div>
@@ -35,12 +35,12 @@
 </div>
 
 
-<article class="style2" style="padding-bottom: 0px; border-bottom: 2px solid black;" ng-repeat="option in item.options track by $index">
+<article class="style2" style="padding-bottom: 0px; border-bottom: 2px solid black;" ng-repeat="option in options track by $index">
     <div class="row">
         <div class="col-md-4 col-sm-4">
             <div class="post-excerpt desk-block">
                 <h3 class="mobile-margin">
-                    <span class="numbering-mobile">{{$index+1}}</span>
+                    <span class="numbering-mobile">{{$index+1+(page-1)*10}}</span>
                 </h3>
                 <a ng-click="vote(option.id)">
                     <p class="vote-up-icon-mobile" ng-hide="item.vote">ভোট দিন
@@ -56,8 +56,8 @@
                 <div class="article-thumb">
                     <img ng-hide="option.photo" src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" class="img-responsive image-perfect"
                         alt="" />
-                    <img ng-show="option.photo" ng-src="http://soft360d.com/topten/images/{{option.photo}}"
-                        class="img-responsive image-perfect" alt="" />
+                    <img ng-show="option.photo" ng-src="http://soft360d.com/topten/images/{{option.photo}}" class="img-responsive image-perfect"
+                        alt="" />
                 </div>
             </a>
             <h3 style="margin-top: 0px;" class="mobile-margin desk-block">
@@ -68,29 +68,29 @@
         <div class="col-md-8 col-sm-8">
             <div class="post-excerpt">
                 <div class="row">
-                        <div class="col-md-1 no-margin-padding">
-                            <h3 style="margin-top: 0px;" class="mobile-margin">
-                            <span class="numbering">{{$index+1}}</span>
-                            </h3>
-                        </div>
-                        <div class="col-md-7 no-margin-padding mob-block">
-                                <h3 style="margin-top: 0px;" class="mobile-margin">
-                                <a href="#!/option/{{option.id}}">{{option.title}}</a>
-                                </h3>
-                        </div>
-                        <div class="col-md-4 no-margin-paddingk">
-                            <a ng-click="vote(option.id)">
-                                <p class="vote-up-icon" ng-hide="item.vote">ভোট দিন
-                                    <i class="fa fa-check-square" aria-hidden="true"></i>
-                                </p>
-                            </a>
-                            <p class="vote-up-icon" ng-show="item.votes==0 && item.vote">0%
+                    <div class="col-md-1 no-margin-padding">
+                        <h3 style="margin-top: 0px;" class="mobile-margin">
+                            <span class="numbering">{{$index+1+(page-1)*10}}</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-7 no-margin-padding mob-block">
+                        <h3 style="margin-top: 0px;" class="mobile-margin">
+                            <a href="#!/option/{{option.id}}">{{option.title}}</a>
+                        </h3>
+                    </div>
+                    <div class="col-md-4 no-margin-paddingk">
+                        <a ng-click="vote(option.id)">
+                            <p class="vote-up-icon" ng-hide="item.vote">ভোট দিন
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
                             </p>
-                            <p class="vote-up-icon" ng-show="item.votes!=0 && item.vote">{{(option.votes*100/item.votes).toFixed(2)}}%
-                            </p>
-                        </div>
+                        </a>
+                        <p class="vote-up-icon" ng-show="item.votes==0 && item.vote">0%
+                        </p>
+                        <p class="vote-up-icon" ng-show="item.votes!=0 && item.vote">{{(option.votes*100/item.votes).toFixed(2)}}%
+                        </p>
+                    </div>
                 </div>
-                
+
                 <p class="mob-block">{{option.description}}</p>
             </div>
         </div>
@@ -105,6 +105,10 @@
 
     </div>
 </article>
+<div class="row" ng-show="total>12">
+    <p>Showing {{(page-1)*10+1}} to {{page*10>total?total:page*10}} of {{total}}</p>
+    <pagination count="total" take="10" activate="getOptions" max-size="10" hide-arrows="false"></pagination>
+</div>
 
 <div class="clearfix"></div>
 <div class="" ng-hide="loading">
