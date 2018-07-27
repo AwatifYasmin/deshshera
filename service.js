@@ -1,5 +1,5 @@
 myApp.service('baseSvc', function($http, $q) {
-    var baseUrl = "http://soft360d.com/topten/";
+    var baseUrl = "/api/";
     function getToken () {
         var token = localStorage.getItem('auth-token');
         var guest = localStorage.getItem('guest-token');

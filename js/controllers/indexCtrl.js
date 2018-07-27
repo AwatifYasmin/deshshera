@@ -6,7 +6,7 @@ myApp.controller('indexCtrl', function ($scope, baseSvc, $rootScope) {
         .then(function (response) {
             $rootScope.newItems = response.items;
             $rootScope.newItems.forEach(function (item) {
-                item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                item.photo = "https://deshshera.com/api/images/" + item.photo;
             });
             if ($rootScope.newItems.length > 3) {
                 $scope.newIndexItems = $rootScope.newItems.slice(0, 3);
@@ -22,7 +22,7 @@ myApp.controller('indexCtrl', function ($scope, baseSvc, $rootScope) {
         .then(function (response) {
             $scope.randomItems = response.items;
             $scope.randomItems.forEach(function (item) {
-                item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                item.photo = "https://deshshera.com/api/images/" + item.photo;
             });
 
             $scope.loading = false;
@@ -43,7 +43,7 @@ myApp.controller('popularCtrl', function ($scope, baseSvc) {
             .then(function (response) {
                 $scope.items = response.items;
                 $scope.items.forEach(function (item) {
-                    item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                    item.photo = "https://deshshera.com/api/images/" + item.photo;
                 });
                 $scope.total = response.total;
                 $scope.loading = false;
@@ -65,7 +65,7 @@ myApp.controller('newCtrl', function ($scope, baseSvc) {
             .then(function (response) {
                 $scope.items = response.items;
                 $scope.items.forEach(function (item) {
-                    item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                    item.photo = "https://deshshera.com/api/images/" + item.photo;
                 });
                 $scope.total = response.total;
                 $scope.loading = false;
@@ -89,7 +89,7 @@ myApp.controller('categoryWiseCtrl', function ($scope, baseSvc, $stateParams) {
                 $scope.category = response.category;
                 $scope.items = response.items;
                 $scope.items.forEach(function (item) {
-                    item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                    item.photo = "https://deshshera.com/api/images/" + item.photo;
                 });
                 $scope.total = response.total;
                 $scope.loading = false;
@@ -112,7 +112,7 @@ myApp.controller('tagWiseCtrl', function ($scope, baseSvc, $stateParams) {
                 $scope.tag = response.tag;
                 $scope.items = response.items;
                 $scope.items.forEach(function (item) {
-                    item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                    item.photo = "https://deshshera.com/api/images/" + item.photo;
                 });
                 $scope.total = response.total;
                 $scope.loading = false;
@@ -134,7 +134,7 @@ myApp.controller('searchCtrl', function ($scope, baseSvc, $stateParams) {
             .then(function (response) {
                 $scope.items = response.items;
                 $scope.items.forEach(function (item) {
-                    item.photo = "http://soft360d.com/topten/images/" + item.photo;
+                    item.photo = "https://deshshera.com/api/images/" + item.photo;
                 });
                 $scope.total = response.total;
                 $scope.loading = false;

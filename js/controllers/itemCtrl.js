@@ -3,7 +3,7 @@ myApp.controller('itemCtrl', function ($scope, $timeout, baseSvc, $rootScope, $s
     $scope.title = "";
     $scope.description = "";
     var id = $stateParams.id;
-    $scope.fbLink = window.location.href;
+    $scope.fbLink = "https://deshshera.com/pages/items.php?id="+id;
     $scope.loading = false;
     $scope.getItem = function () {
         $scope.loading = true;

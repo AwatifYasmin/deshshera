@@ -172,6 +172,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state(contact);
 
   $urlRouterProvider.otherwise('/');
+
 });
 
 myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
@@ -184,10 +185,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       version: 'v2.4'
     });
   };
-  $rootScope.title = "Desh shera";
-  $rootScope.description = "Desh shera";
-  $rootScope.url = "http://deshshera.com";
-  $rootScope.image = "";
+
   var token = localStorage.getItem("auth-token");
   var guest = localStorage.getItem("guest-token");
   $rootScope.tabOpen = "vote";
@@ -215,7 +213,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       .then(function (response) {
         $rootScope.popularItems = response.items;
         $rootScope.popularItems.forEach(function (item) {
-          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+          item.photo = "https://deshshera.com/api/images/" + item.photo;
         });
       });
 
@@ -223,7 +221,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       .then(function (response) {
         $rootScope.newItems = response.items;
         $rootScope.newItems.forEach(function (item) {
-          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+          item.photo = "https://deshshera.com/api/images/" + item.photo;
         });
         //console.log($rootScope.newItems);
       });
@@ -232,7 +230,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       .then(function (response) {
         $rootScope.votedItems = response.items;
         $rootScope.votedItems.forEach(function (item) {
-          item.photo = "http://soft360d.com/topten/images/" + item.photo;
+          item.photo = "https://deshshera.com/api/images/" + item.photo;
         });
       });
   }
@@ -278,7 +276,7 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
       $rootScope.showSideBar = true;
     }
 
-    if (newUrl.indexOf("idea") != -1) {
+    if (newUrl.indexOf("idea") != -1 || newUrl.indexOf("profile") != -1) {
       if (!$rootScope.token) {
         var token = localStorage.getItem("auth-token");
         if(!token){
@@ -286,13 +284,6 @@ myApp.run(function ($rootScope, $state, baseSvc, $window, $anchorScroll) {
           $rootScope.message = "You have to log in first.";
         }
       }
-    }
-
-    if (newUrl.indexOf("item") == -1) {
-      $rootScope.title = "DeshShera";
-      $rootScope.description = "Desh shera description";
-      $rootScope.url = "http://deshshera.com";
-      $rootScope.image = "";
     }
   });
 });
